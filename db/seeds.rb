@@ -7,3 +7,15 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+(0..20).each do |p|
+  p = Product.new
+  p.name = Faker::Food.dish
+  p.description = Faker::Food.description
+  p.mrp = Faker::Commerce.price
+  p.nrp = Faker::Commerce.price
+  p.quantity = Faker::Number.between(from: 1, to: 10)
+  p.status = [1,2].sample
+  p.slug = p.name.downcase.gsub(' ', '-')
+  p.save
+end

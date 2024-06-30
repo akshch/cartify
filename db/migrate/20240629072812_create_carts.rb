@@ -4,7 +4,7 @@ class CreateCarts < ActiveRecord::Migration[7.1]
       t.integer :quantity
       t.decimal :amount, default: 0.0
       t.string :guest_id
-      t.references :users, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

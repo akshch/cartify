@@ -5,6 +5,12 @@ class Api::V1::BaseController < ActionController::API
     render json: { errors: 'not found' }, status: :not_found
   end
 
+  helper_method :current_user_cart
+
+  def current_user_cart
+    @current_user.carts.first
+  end
+
   private
 
   def authorize_request
@@ -19,4 +25,5 @@ class Api::V1::BaseController < ActionController::API
       render json: { errors: e.message }, status: :unauthorized
     end
   end
+
 end
